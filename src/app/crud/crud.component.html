@@ -1,0 +1,63 @@
+<div class="row">
+ <div class="d-flex justify-content-start h5 col-2 my-3">PRODUCTOS</div>
+<div class="d-flex justify-content-end col-10">  
+    <div class="col-4 mb-2">
+        <input [(ngModel)]="formulario.filtro" name="filtro" type="search" class="form-control" />
+    </div>
+   <button class="btn btn-primary btn-sm mb-3 p-2" style="margin-left:20px;">
+    <fa-icon [icon]="faAdd"></fa-icon>  Agregar Producto</button>
+</div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <p class="card-title">Lista de Productos</p>
+        <table class="table table-responsive table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Categoría
+                    </th>
+                    <th>
+                        Precio
+                    </th>
+                    <th>
+                        Cantidad
+                    </th>
+                    <th>
+                        Inventario
+                    </th>
+                    <th>
+                        Acción
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of productos | filtrarTabla:formulario.filtro">
+                    <td>
+                        {{i.nombre}}
+                    </td>
+                    <td>
+                        {{i.categoria}}
+                    </td>
+                    <td>
+                        {{i.precio}}
+                    </td>
+                    <td>
+                        {{i.cantidad}}
+                    </td>
+                    <td>
+                        {{i.inventario}}
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
