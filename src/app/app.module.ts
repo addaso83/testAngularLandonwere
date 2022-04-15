@@ -8,8 +8,11 @@ import { HeaderComponent } from './shared/header/header.component';
 import { CrudComponent } from './crud/crud.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { FiltrarTablaPipe } from './pipes/filtrar-tabla.pipe'
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
+import { FiltrarTablaPipe } from './pipes/filtrar-tabla.pipe';
+import { CreateComponent } from './crud/create.component';
+import { EditComponent } from './crud/edit.component';
+
 
 @NgModule({
   declarations: [
@@ -17,14 +20,17 @@ import { FiltrarTablaPipe } from './pipes/filtrar-tabla.pipe'
     SidebarComponent,
     HeaderComponent,
     CrudComponent,
-    FiltrarTablaPipe
+    FiltrarTablaPipe,
+    CreateComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

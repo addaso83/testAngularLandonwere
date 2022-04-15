@@ -4,8 +4,8 @@
     <div class="col-4 mb-2">
         <input [(ngModel)]="formulario.filtro" name="filtro" type="search" class="form-control" />
     </div>
-   <button class="btn btn-primary btn-sm mb-3 p-2" style="margin-left:20px;">
-    <fa-icon [icon]="faAdd"></fa-icon>  Agregar Producto</button>
+   <button class="btn btn-primary btn-sm mb-3 p-2" style="margin-left:20px;" [routerLink]="['/create']">
+    <fa-icon [icon]="faAdd"></fa-icon> Agregar Producto</button>
 </div>
 </div>
 
@@ -50,14 +50,37 @@
                         {{i.cantidad}}
                     </td>
                     <td>
-                        {{i.inventario}}
+                        <span *ngIf="i.inventario=='En stock'" class="text-success">
+                            <span class="greenCicle"></span>
+                            {{
+                                i.inventario
+                            }}
+                        </span>
+                    
+                        <span *ngIf="i.inventario=='Limitado'" class="text-warning">
+                            <span class="yellowCicle"> </span>
+                            {{
+                                i.inventario
+                            }}
+                        </span>
+                        <span *ngIf="i.inventario=='Agotado'" class="text-danger">
+                            <span class="redCicle"></span>
+                            <span class="badge"></span>
+                            {{
+                                i.inventario
+                            }}
+                        </span>
                     </td>
                     <td>
-                        
+                        <button type="button" name="editar" [routerLink]="['/edit/', i.productoId]"  class="btn btn-defult btn-sm px-3">
+                            <fa-icon [icon]="faEdit"></fa-icon> 
+                        </button>
+                        <button type="button" name="borrar" (click)="borrar(i.productoId)" class="btn btn-defult btn-sm px-3">
+                            <fa-icon [icon]="faTrash"></fa-icon> 
+                        </button>
                     </td>
                 </tr>
             </tbody>
-
         </table>
     </div>
 </div>

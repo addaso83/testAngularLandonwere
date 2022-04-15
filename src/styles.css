@@ -98,3 +98,29 @@ body {
     border-color: transparent;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
   }
+
+  .yellowCicle {
+    height: 15px;
+    width: 15px;
+    background-color: #FFC107;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .greenCicle {
+    height: 15px;
+    width: 15px;
+    background-color: #198754;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .redCicle {
+    height: 15px;
+    width: 15px;
+    background-color: #DC3545;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  

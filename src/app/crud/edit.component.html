@@ -1,0 +1,86 @@
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Modificación de Productos</h4>
+    </div>
+    <div class="card-body">
+      <form id="formularioCreacionProducto" [formGroup]="form" (ngSubmit)="Guardar()" class="form" role="form">
+      <div class="row">
+          <div class="d-flex justify-content-start h5 col-2 my-3"></div>
+           <div class="d-flex justify-content-end col-10">  
+            <button class="btn btn-light btn-sm" [routerLink]="['/crud']" >
+              <fa-icon [icon]="faArrowRotateLeft"></fa-icon> Regresar</button>
+            <button class="btn btn-primary btn-sm mx-3" type="submit">
+              <fa-icon [icon]="faSave"></fa-icon> Guardar</button>
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-12">
+            <div class="mb-2 col-6">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input  placeholder="Nombre" class="form-control" maxlength="250"  name="nombre" formControlName="nombre" />
+              <span class="text-danger"
+              *ngIf="(ControlesFormularios['nombre'].touched || seHizoSubmit) && ControlesFormularios['nombre'].errors?.['required']">
+              Nombre es requerido
+              </span>
+              <span class="text-danger"
+              *ngIf="(ControlesFormularios['nombre'].touched || seHizoSubmit) && ControlesFormularios['nombre'].errors?.['maxLength']">
+              Nombre es hasta longitud de 250 carácteres
+              </span>
+  
+            </div>
+            <div class="mb-2 col-3">
+              <label for="categoria" class="form-label">Categoría</label>
+              <select placeholder="Categoría" class="form-select"  name="categoria" formControlName="categoria">
+                <option value="" selected>Selecciona una Categoría</option>
+                <option *ngFor="let c of categorias" value="{{c.categoriaid}}">
+                  {{c.nombre}}
+                </option>
+              </select>
+              <span class="text-danger"
+              *ngIf="(ControlesFormularios['categoria'].touched || seHizoSubmit) && ControlesFormularios['categoria'].errors?.['required']">
+              Categoría es requerido
+              </span>
+            </div>
+            <div class="mb-2 col-3">
+              <label for="precio" class="form-label">Precio</label>
+              <input  placeholder="Precio" class="form-control"  name="precio" formControlName="precio" />
+              <span class="text-danger"
+              *ngIf="(ControlesFormularios['precio'].touched || seHizoSubmit) && ControlesFormularios['precio'].errors?.['required']">
+              Precio es requerido
+              </span>
+              <span class="text-danger"
+              *ngIf="(ControlesFormularios['precio'].touched || seHizoSubmit) && ControlesFormularios['precio'].errors?.['pattern']">
+               Precio Mínima es valor decimal con dos posiciones decimales
+              </span>
+            </div>
+            <div class="mb-2 col-3">
+              <label for="cantidad" class="form-label">Cantidad</label>
+              <input  placeholder="Cantidad" class="form-control"  name="cantidad" formControlName="cantidad" />
+              <span class="text-danger"
+              *ngIf="(ControlesFormularios['cantidad'].touched || seHizoSubmit) && ControlesFormularios['cantidad'].errors?.['required']">
+              Cantidad es requerido
+              </span>
+              <span class="text-danger"
+              *ngIf="(ControlesFormularios['cantidad'].touched || seHizoSubmit) && ControlesFormularios['cantidad'].errors?.['pattern']">
+              Cantidad es valor entero
+              </span>
+            </div>
+            <div class="mb-2 col-3">
+              <label for="existenciaMinima" class="form-label">Existencia Mínima</label>
+              <input  placeholder="Existencia Mínima" class="form-control"  name="existenciaMinima" formControlName="existenciaMinima" />
+              <span class="text-danger"
+              *ngIf="(ControlesFormularios['existenciaMinima'].touched || seHizoSubmit) && ControlesFormularios['existenciaMinima'].errors?.['required']">
+              Existencia Mínima
+              </span>
+              <span class="text-danger"
+              *ngIf="(ControlesFormularios['existenciaMinima'].touched || seHizoSubmit) && ControlesFormularios['existenciaMinima'].errors?.['pattern']">
+               Existencia Mínima es valor entero
+              </span>
+            </div>
+             
+           </div>
+         </div>
+  
+        </form>
+    </div>
+  </div>
